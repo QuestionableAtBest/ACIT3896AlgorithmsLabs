@@ -1,3 +1,4 @@
+#Lab link https://gist.github.com/jholman-bcit/bbb252b867ecc23afedc2937f910fd37
 def linear_search(needle,haystack):
     for index,i in enumerate(haystack):
         if i == needle:
