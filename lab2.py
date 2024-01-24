@@ -1,195 +1,134 @@
-#Lab link:https://gist.github.com/jholman-bcit/90ef3d4c88acc798b93b5a21d87c5a91
-
 import time
 import random
 
-#Add 1 number to the beginning of a list that already has 10 numbers in it
+stuff_ten = list(range(10))
+stuff_million = list(range(1000000))
+
+d_ten = {str(i): i for i in range(10)}
+d_million = {str(i): i for i in range(1000000)}
+
+# Add 1 number to the beginning of a list that already has 10 numbers in it
 def add_one_to_ten():
-    stuff = list(range(10))
-
     t0 = time.perf_counter()
-    stuff.insert(0, random.randint(11, 20))
+    stuff_ten.insert(0, 1)
     t1 = time.perf_counter()
-    
-    print("To add 1 number to the beginning of a list that already has 10 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
+    print("To add 1 number to the beginning of a list that already has 10 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Add 1 number to the beginning of a list that already has 1,000,000 numbers in it
+# Add 1 number to the beginning of a list that already has 1,000,000 numbers in it
 def add_one_to_million():
-    stuff = list(range(1000000))
-
     t0 = time.perf_counter()
-    stuff.insert(0, random.randint(1000001, 2000000))
+    stuff_million.insert(0, 1)
     t1 = time.perf_counter()
-    print("To add 1 number to the beginning of a list that already has 1,000,000 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
+    print("To add 1 number to the beginning of a list that already has 1,000,000 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Add 1 number to the end of a list that already has 10 numbers in it
+# Add 1 number to the end of a list that already has 10 numbers in it
 def add_one_to_end_ten():
-    stuff = list(range(10))
-
     t0 = time.perf_counter()
-    stuff.append(random.randint(11, 20))
+    stuff_ten.append(9)
     t1 = time.perf_counter()
-    print("To add 1 number to the end of a list that already has 10 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
+    print("To add 1 number to the end of a list that already has 10 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Add 1 number to the end of a list that already has 1,000,000 numbers in it
+# Add 1 number to the end of a list that already has 1,000,000 numbers in it
 def add_one_to_end_million():
-    stuff = list(range(1000000))
-
     t0 = time.perf_counter()
-    stuff.append(random.randint(1000001, 2000000))
+    stuff_million.append(9)
     t1 = time.perf_counter()
-    print("To add 1 number to the end of a list that already has 1,000,000 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
+    print("To add 1 number to the end of a list that already has 1,000,000 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Remove 1 number from the beginning of a list that already has 10 numbers in it
+# Remove 1 number from the beginning of a list that already has 10 numbers in it
 def remove_one_from_ten():
-    stuff = list(range(10))
-
     t0 = time.perf_counter()
-    stuff.pop(0)
+    stuff_ten.pop(0)
     t1 = time.perf_counter()
-    print("To remove 1 number from the beginning of a list that already has 10 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
+    print("To remove 1 number from the beginning of a list that already has 10 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Remove 1 number from the beginning of a list that already has 1,000,000 numbers in it
+# Remove 1 number from the beginning of a list that already has 1,000,000 numbers in it
 def remove_one_from_million():
-    stuff = list(range(1000000))
-
     t0 = time.perf_counter()
-    stuff.pop(0)
+    stuff_million.pop(0)
     t1 = time.perf_counter()
-    print("To remove 1 number from the beginning of a list that already has 1000000 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
+    print("To remove 1 number from the beginning of a list that already has 1,000,000 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Paul's times:
-#Harry's times:
-
-#Remove 1 number from the end of a list that already has 10 numbers in it
+# Remove 1 number from the end of a list that already has 10 numbers in it
 def remove_one_from_end_ten():
-    stuff = list(range(10))
     t0 = time.perf_counter()
-    stuff.pop()
+    stuff_ten.pop()
     t1 = time.perf_counter()
-    print("To remove 1 number from the end of a list that already has 10 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-    pass
-#Paul's times:
-#Harry's times:
+    print("To remove 1 number from the end of a list that already has 10 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
 
-#Add 1 number to the beignning of a list that already has 10 numbers in it
+# Remove 1 number from the end of a list that already has 1,000,000 numbers in it
 def remove_one_from_end_million():
-    stuff = list(range(1000000))
     t0 = time.perf_counter()
-    stuff.pop()
+    stuff_million.pop()
     t1 = time.perf_counter()
-    print("To remove 1 number from the end of a list that already has 1,000,000 numbers in it took: ", (t1 - t0) * 1e6, "microseconds")
-#Paul's times:
-#Harry's times:
-    
-# Check for the presence of a number in a list of 10 numbers
+    print("To remove 1 number from the end of a list that already has 1,000,000 numbers in it took:", (t1 - t0) * 1e6, "microseconds")
+
+# Check for the presence of a number (9) in a list of 10 numbers
 def check_in_list_ten():
-    stuff = list(range(10))
-    number_to_check = random.randint(0, 9)
-
     t0 = time.perf_counter()
-    if number_to_check in stuff:
+    if 9 in stuff_ten:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the presence of a number (9) in a list of 10 numbers took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the presence of a number in a list of 10 numbers took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the presence of a number in a list of 1,000,000 numbers
+# Check for the presence of a number (9) in a list of 1,000,000 numbers
 def check_in_list_million():
-    stuff = list(range(1000000))
-    number_to_check = random.randint(0, 999999)
-
     t0 = time.perf_counter()
-    if number_to_check in stuff:
+    if 9 in stuff_million:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the presence of a number (9) in a list of 1,000,000 numbers took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the presence of a number in a list of 1,000,000 numbers took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the absence of a number in a list of 10 numbers
+# Check for the absence of a number (9) in a list of 10 numbers
 def check_not_in_list_ten():
-    stuff = list(range(10))
-    number_to_check = random.randint(10, 20)
-
     t0 = time.perf_counter()
-    if number_to_check not in stuff:
+    if 9 not in stuff_ten:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the absence of a number (9) in a list of 10 numbers took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the absence of a number in a list of 10 numbers took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the absence of a number in a list of 1,000,000 numbers
+# Check for the absence of a number (9) in a list of 1,000,000 numbers
 def check_not_in_list_million():
-    stuff = list(range(1000000))
-    number_to_check = random.randint(1000001, 2000000)
-
     t0 = time.perf_counter()
-    if number_to_check not in stuff:
+    if 9 not in stuff_million:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the absence of a number (9) in a list of 1,000,000 numbers took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the absence of a number in a list of 1,000,000 numbers took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the presence of a key in a dict of 10 key-value pairs
+# Check for the presence of a key ("9") in a dict of 10 key-value pairs
 def check_in_dict_ten():
-    d = {str(i): i for i in range(10)}
-    key_to_check = str(random.randint(0, 9))
-
     t0 = time.perf_counter()
-    if key_to_check in d:
+    if "9" in d_ten:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the presence of a key ('9') in a dict of 10 key-value pairs took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the presence of a key in a dict of 10 key-value pairs took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the presence of a key in a dict of 1,000,000 key-value pairs
+# Check for the presence of a key ("9") in a dict of 1,000,000 key-value pairs
 def check_in_dict_million():
-    d = {str(i): i for i in range(1000000)}
-    key_to_check = str(random.randint(0, 999999))
-
     t0 = time.perf_counter()
-    if key_to_check in d:
+    if "9" in d_million:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the presence of a key ('9') in a dict of 1,000,000 key-value pairs took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the presence of a key in a dict of 1,000,000 key-value pairs took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the absence of a key in a dict of 10 key-value pairs
+# Check for the absence of a key ("9") in a dict of 10 key-value pairs
 def check_not_in_dict_ten():
-    d = {str(i): i for i in range(10)}
-    key_to_check = str(random.randint(10, 20))
-
     t0 = time.perf_counter()
-    if key_to_check not in d:
+    if "9" not in d_ten:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
+    print("To check for the absence of a key ('9') in a dict of 10 key-value pairs took:", (t1 - t0) * 1e6, "microseconds")
 
-    print("To check for the absence of a key in a dict of 10 key-value pairs took: ", (t1 - t0) * 1e6, "microseconds")
-
-# Check for the absence of a key in a dict of 1,000,000 key-value pairs
+# Check for the absence of a key ("9") in a dict of 1,000,000 key-value pairs
 def check_not_in_dict_million():
-    d = {str(i): i for i in range(1000000)}
-    key_to_check = str(random.randint(1000001, 2000000))
-
     t0 = time.perf_counter()
-    if key_to_check not in d:
+    if "9" not in d_million:
         pass  # We just need it to run using Jeremy's syntax
     t1 = time.perf_counter()
-
-    print("To check for the absence of a key in a dictionary of 1,000,000 key-value pairs took: ", (t1 - t0) * 1e6, "microseconds")
+    print("To check for the absence of a key ('9') in a dictionary of 1,000,000 key-value pairs took:", (t1 - t0) * 1e6, "microseconds")
 
 # Calling the functions
-add_one_to_ten()
+abc = add_one_to_ten()
 add_one_to_million()
 add_one_to_end_ten()
 add_one_to_end_million()
