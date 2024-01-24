@@ -126,7 +126,7 @@ def time_average(func):
         time_list.append(test_time)
     # print("All times", time_list) <- Commented out because it's a lot of numbers
     average_time = sum(time_list) / len(time_list)
-    print("Average time:", average_time, "microseconds")
+    print("Average time for: ", func, " is ", average_time, "microseconds")
 
 # Calling the functions and calculating average times
 time_average(add_one_to_ten)
