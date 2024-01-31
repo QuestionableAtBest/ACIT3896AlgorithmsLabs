@@ -5,7 +5,8 @@
 #part1_lln.py
 class LLN:
     def __init__(self, contents):
-        pass
+        self.contents = contents
+        self.next = None
 
     def __repr__(self):
         # This isn't the greatest implementation ever, but I don't want to give too much away
@@ -15,7 +16,13 @@ class LLN:
         # This function should made a new LLN, and it should attach that LLN after the current one
         #   ... and it should return the new one.
         # If there was already a node after the current one, don't destroy it, just bump it over!
-        pass
+        node = LLN(contents)
+        if not self.next == None:
+            old_next = self.next
+            self.next = node
+            node.next = old_next
+        else:
+            self.next = node
 
     def toList(self):
         # This function is not supposed to print!
@@ -42,39 +49,39 @@ def main():
     second = first.addAfter("bob")
     print("now second should exist too:", second)
 
-    print("\n** toList **")
-    print("I'd like to be able to print them out in a normal list")
-    print("Everything (as a list) starting from second:", second.toList())
-    print("Everything (as a list) starting from first:", first.toList())
-    print("Let me prove that it's a list.  What's the type?  It's:", type(first.toList()))
+    # print("\n** toList **")
+    # print("I'd like to be able to print them out in a normal list")
+    # print("Everything (as a list) starting from second:", second.toList())
+    # print("Everything (as a list) starting from first:", first.toList())
+    # print("Let me prove that it's a list.  What's the type?  It's:", type(first.toList()))
 
-    print("\n** more checking of longer LinkedLists **")
-    third = second.addAfter("dog")
-    print("we just added 'dog' after the second node")
-    print("the whole linked list (as a list):", first.toList())
-    print("starting at second:", second.toList())
-    print("starting at third:", third.toList())
+    # print("\n** more checking of longer LinkedLists **")
+    # third = second.addAfter("dog")
+    # print("we just added 'dog' after the second node")
+    # print("the whole linked list (as a list):", first.toList())
+    # print("starting at second:", second.toList())
+    # print("starting at third:", third.toList())
 
-    print("\n** findLast **")
-    print("this should get the dog (which is last): ", first.findLast())
+    # print("\n** findLast **")
+    # print("this should get the dog (which is last): ", first.findLast())
 
-    print("\n** inserting works in the middle **")
-    twopointfive = second.addAfter("cat")
-    print("I added a cat after bob, it should appear before the dog:", first.toList())
+    # print("\n** inserting works in the middle **")
+    # twopointfive = second.addAfter("cat")
+    # print("I added a cat after bob, it should appear before the dog:", first.toList())
 
-    print("\n** findAfter **")
-    print("I can find bob after the alice:", first.findAfter("bob"))
-    print("But if I try to find alice after bob, I get an exception")
-    try:
-        print(second.findAfter("alice"))
-    except KeyError as ke:
-        print("KEY ERROR", ke)
-    print("Similarly I cannot find cat AFTER cat, I get an exception")
-    try:
-        print(twopointfive.findAfter("cat"))
-    except KeyError as ke:
-        print("KEY ERROR", ke)
-    print("But the dog is after the cat, that's fine:", twopointfive.findAfter("dog"))
+    # print("\n** findAfter **")
+    # print("I can find bob after the alice:", first.findAfter("bob"))
+    # print("But if I try to find alice after bob, I get an exception")
+    # try:
+    #     print(second.findAfter("alice"))
+    # except KeyError as ke:
+    #     print("KEY ERROR", ke)
+    # print("Similarly I cannot find cat AFTER cat, I get an exception")
+    # try:
+    #     print(twopointfive.findAfter("cat"))
+    # except KeyError as ke:
+    #     print("KEY ERROR", ke)
+    # print("But the dog is after the cat, that's fine:", twopointfive.findAfter("dog"))
 
 
 
