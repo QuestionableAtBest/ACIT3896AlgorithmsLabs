@@ -1,4 +1,4 @@
-
+#Lab link:https://gist.github.com/jholman-bcit/3d0eff6ed59ee27cb90412ac716ca43d
 class TreeNode:
     def __init__(self, contents):
         self.contents = contents
