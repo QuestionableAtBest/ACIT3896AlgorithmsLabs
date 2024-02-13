@@ -3,20 +3,21 @@
 #Part 2: DoublyLinkedListNode
 
 #part2_dlln.py
-class LLN:
+class DLLN:
     def __init__(self, contents):
         self.contents = contents
+        self.prev = None
         self.next = None
 
     def __repr__(self):
         # This isn't the greatest implementation ever, but I don't want to give too much away
-        return f"LLN({str(self.contents)})"
+        return f"DLLN({str(self.contents)})"
 
     def addAfter(self, contents):
         # This function should made a new LLN, and it should attach that LLN after the current one
         #   ... and it should return the new one.
         # If there was already a node after the current one, don't destroy it, just bump it over!
-        node = LLN(contents)
+        node = DLLN(contents)
         if not self.next == None:
             old_next = self.next
             self.next = node

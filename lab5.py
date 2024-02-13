@@ -11,27 +11,32 @@ class TreeNode:
 
     def addAsLastChild(self, contents):
         # should create a new node and add it as a child of the current node, AFTER any existing nodes
-        pass
+        new_node = TreeNode(contents)
+        new_node.parent = self
+        self.children.append(new_node)
+        return new_node
 
     def addAsFirstChild(self, contents):
         # should create a new node and add it as a child of the current node, BEFORE any existing nodes
-        pass
+        new_node = TreeNode(contents)
+        new_node.parent = self
+        self.children.insert(0,new_node)
+        return new_node
 
     def findRoot(self):
         # returns the root of the tree that the current node is in (note that current node might be root)
-        pass
+        if self.parent == None:
+            return self
+        else:
+            return self.parent.findRoot()
 
     def findLeftmostDescendant(self):
         # a "descendant" is a child, or a child-of-child, or child-of-child-of-child, etc
         # this one should travel only down the left edge of the tree, as far as it can
-        pass
-
-
-
-
-
-
-
+        if self.children == []:
+            return self
+        else:
+            return self.children[0].findLeftmostDescendant()
 
 
 def case1():
@@ -86,9 +91,6 @@ def main(args):
     case1()
     case2()
     case3()
-
-
-
 
 if __name__ == '__main__':
     import sys
