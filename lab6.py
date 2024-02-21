@@ -51,21 +51,33 @@ class TreeNode:
                 
         return ans
     def dfs_todos_badorder(self):
-        ### This is a hint, which you might use or ignore, as you choose
-        # ans = []
-        # s = Stack()
-        # s.push(self)
-        # while s.isNotEmpty():
-        #     pass
-        # return ans
+        ## This is a hint, which you might use or ignore, as you choose
+        ans = []
+        s = Stack()
+        s.push(self)
+        while s.isNotEmpty():
+            node = s.pop()
+            # No backtracking now, just add to list
+            ans.append(node.contents)
 
-        return "part 2 not implemented"         # obviously you delete this line when you do part 2
+            # Put all children in the stack
+            for child in node.children:
+                s.push(child)
+        return ans
 
     def dfs_todos_goodorder(self):
+        ans = []
+        s = Stack()
+        s.push(self)
+        while s.isNotEmpty():
+            node = s.pop()
+            # No backtracking now, just add to list
+            ans.append(node.contents)
 
-        return "part 3 not implemented"         # obviously you delete this line when you do part 3
-
-
+            # Put all children in the stack, this time in reverse order?
+            for child in reversed(node.children):
+                s.push(child)
+        return ans
 
 
 '''
