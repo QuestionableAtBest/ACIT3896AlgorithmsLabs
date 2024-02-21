@@ -50,6 +50,7 @@ class TreeNode:
                 s.push((child, 0))        
                 
         return ans
+    
     def dfs_todos_badorder(self):
         ## This is a hint, which you might use or ignore, as you choose
         ans = []
@@ -65,6 +66,7 @@ class TreeNode:
                 s.push(child)
         return ans
 
+#Could try using a deque here from class. From Collections import deque
     def dfs_todos_goodorder(self):
         ans = []
         s = Stack()
