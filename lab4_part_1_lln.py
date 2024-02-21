@@ -17,11 +17,8 @@ class LLN:
         #   ... and it should return the new one.
         # If there was already a node after the current one, don't destroy it, just bump it over!
         node = LLN(contents)
-        if not self.next == None:
-            node.next = self.next
-            self.next = node
-        else:
-            self.next = node
+        node.next = self.next
+        self.next = node
         return node
 
     def toList(self):
