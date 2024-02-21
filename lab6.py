@@ -1,3 +1,4 @@
+#Lab link: https://gist.github.com/jholman-bcit/cb012203df18f5a74a88f6071c0354bb
 class Stack:
     def __init__(self):
         self.items = []

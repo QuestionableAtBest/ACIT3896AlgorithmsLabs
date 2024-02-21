@@ -18,9 +18,8 @@ class LLN:
         # If there was already a node after the current one, don't destroy it, just bump it over!
         node = LLN(contents)
         if not self.next == None:
-            old_next = self.next
+            node.next = self.next
             self.next = node
-            node.next = old_next
         else:
             self.next = node
         return node
