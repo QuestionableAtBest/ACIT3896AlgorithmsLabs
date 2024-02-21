@@ -1,5 +1,6 @@
 #Lab link https://gist.github.com/jholman-bcit/0aaf15c62dff31f3c8b4c11edabd1af3
 from collections import deque as Deque
+from time import perf_counter_ns
 class Queue:
     def __init__(self):
         self.items = []
@@ -63,7 +64,36 @@ class TreeNode:
                 dequeso.append(node)
         return ans      
 
+# Optional Part, using a deque or bad queue
+# n = 1000000
+# goodQueue = Deque()
+# badQueue = Queue()
+# times = []
+# For various values of n, try adding n things to a queue then removing all n things
+# Bad Queue
+# for i in range(1000):
+#     start = perf_counter_ns()
+#     for i in range(n):
+#         badQueue.add(i)
+#     for i in range(n):
+#         badQueue.remove()
+#     end = perf_counter_ns()
+#     time = (end-start)/1_000_000
+#     times.append(time)
+# print(f"For size {n}, it took on average {sum(times)/len(times)} milliseconds")
 
+# Good Queue
+# for i in range(100):
+#     start = perf_counter_ns()
+#     for i in range(n):
+#         goodQueue.appendleft(i)
+#     for i in range(n):
+#         goodQueue.pop()
+#     end = perf_counter_ns()
+#     time = (end-start)/1_000_000
+#     times.append(time)
+# print(f"For size {n}, it took on average {sum(times)/len(times)} milliseconds")
+    
 """
 A tree could look like this:
                Z

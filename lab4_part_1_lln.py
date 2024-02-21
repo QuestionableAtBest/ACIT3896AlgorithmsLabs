@@ -24,17 +24,19 @@ class LLN:
     def toList(self):
         # This function is not supposed to print!
         # It should return a list, with all the contents from the Linked List
-        if self.next == None:
-            return [self.contents]
-        else:
-            return [self.contents]+ self.next.toList()
-
+        current = self
+        lst = [current.contents]
+        while current.next != None:
+            current = current.next
+            lst.append(current.contents)
+        return lst
+    
     def findLast(self):
         # This should return the LLN that is last in the LL
-        if self.next == None:
-            return [self.contents]
-        else:
-            return self.next.findLast()
+        current = self
+        while current.next != None:
+            current = current.next
+        return current
 
     def findAfter(self, needle):
         # This should return the LLN that has the needle as its contents
