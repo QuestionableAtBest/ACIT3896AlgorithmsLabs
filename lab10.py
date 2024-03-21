@@ -19,8 +19,12 @@ def selection_sort(seq):
 def insertion_sort(seq):
     for j in range(1,len(seq)):
         block = j
-        for i in range(j):
+        for i in range(j-1,-1,-1):
             if seq[block] < seq[i]:
-                seq[block] , seq[i] = seq[i], seq[block]
+                seq[block],seq[i] = seq[i],seq[block]
+                block = i
+
+
+            
 
 
