@@ -1,87 +1,44 @@
-# Lab 12 Merge Sort: https://gist.github.com/jholman-bcit/5fdc23ced4ee910b3242632f54d55168
-def cheat_sort(seq):
-    seq.sort()
+def pivot_naive(seq):
+    # Honestly you can do almost anything here; heck, just return the last element of seq
+    return seq[len(seq)-1]
 
-def cheat_merge(left, right):
-    return sorted(left + right)
-
-# def merge(left,right):
-#     # Initialize the index of left and right (i and j respectively, yes i could use more specific names, no i won't be doing that.)
-#     i = 0
-#     j = 0
-#     ans = []
-#     # While either one still has numbers, compare which ones is smaller
-#     while i < len(left) and j < len(right):
-#         #Case where left is smaller, put it in ans list then increment left to next number
-#         if left[i] < right[j]:
-#             ans.append(left[i])
-#             i += 1
-#         #Case where right is smaller, same thing
-#         else:
-#             ans.append(right[j])
-#             j += 1
-    
-#     #Two while loops at the end to add the remaining numbers not compared, because one of the lists is now "finished", we know the rest of numbers in the remaining list are all larger and sorted.
-#     while i < len(left):
-#         ans.append(left[i])
-#         i += 1
-
-#     while j < len(right):
-#         ans.append(right[j])
-#         j += 1
-
-#     return ans
-
-# def merge_sort(seq):
-#     if len(seq) <= 1:
-#         return seq
-#     else:
-#         midpoint = len(seq)//2
-#         left = seq[:midpoint]
-#         right = seq[midpoint:]
-#         sorted_l = merge_sort(left)
-#         sorted_r = merge_sort(right)
-#         return merge(sorted_l,sorted_r)
-
-def merge(left, right, seq):
-    # Initialize the index of left and right (i and j respectively, yes i could use more specific names, no i won't be doing that.)
-    i = 0
-    j = 0
-    # instead of a a"nswer" list we now use an extra index here to keep track of where we are in seq
-    k = 0
-
-    # While either one still has numbers, compare which ones is smaller
-    while i < len(left) and j < len(right):
-        # Decide which number to put in seq
-        if left[i] < right[j]:
-            #Case where left is smaller, increment left to next number
-            seq[k] = left[i]
-            i += 1
+def partition_naive(seq, pivot):
+    left = []
+    right = []
+    pivots = []
+    for i in seq:
+        if i > pivot:
+            right.append(i)
+        elif i < pivot:
+            left.append(i)
         else:
-            #Right case
-            seq[k] = right[j]
-            j += 1
-        # Have to increment k in both scenarios so put here
-        k += 1
-    
-    #Cases to handle the remaining numbers left in the list thats not finished
-    while i < len(left):
-        seq[k] = left[i]
-        i += 1
-        k += 1
+            pivots.append(i)
+    return [left,pivots,right]
 
-    while j < len(right):
-        seq[k] = right[j]
-        j += 1
-        k += 1
-
-def merge_sort(seq):
+def quicksort_naive(seq):
     if len(seq) <= 1:
-        return
-    else:
-        midpoint = len(seq) // 2
-        left = seq[:midpoint]
-        right = seq[midpoint:]
-        merge_sort(left)
-        merge_sort(right)
-        merge(left, right, seq)
+        return seq
+    pivot = pivot_naive(seq)
+    left,right,pivots = partition_naive(seq,pivot)
+    answer = quicksort_naive(left) + pivots + quicksort_naive(right)
+    list[:] = answer
+
+def pivot_upgrade(seq, lo, hi):
+    pass        ### TODO
+
+def quicksort_upgrade(seq):
+    __quicksort_upgrade(seq, 0, len(seq))
+
+def __quicksort_upgrade(seq, lo, hi):
+    pass        ### TODO
+
+def partition_upgrade(seq, pivot, lo, hi):
+    [one, two, three] = partition_naive(seq[lo:hi], pivot)
+    seq[lo:hi] = one + two + three
+    return [len(one), len(two), len(three)]
+
+def partition_upgrade(seq, pivot, lo, hi):
+    pass        ### TODO
+
+tester = [1,6,43,2]
+print()
